@@ -1,5 +1,16 @@
 import pymongo
 
+# This script tests python is able to access a MongoDB cluster using SRV Connection string.
+# the script requires to install:
+
+# a.  pip install pymongo
+# b.  pip install dnspython (this should automatically be installed when installing pymongo)
+# c.  pip install srvlookup
+
+# if b,c do not find the SRV records, then either the current python environment has an issue reading SRV records from the DNS (this happens when the python environment becaomes corrupt)
+#    OR that the current host (where the python script is running) doesnt have access to the DNS server,  OR  the SRV records do not exist in the DNS
+# 
+
 #set <user>, <pass> and  <cluster_address> to the relevant values
 
 user= test
@@ -17,7 +28,6 @@ except Exception:
 
 
 import srvlookup
-from json import dumps
 
 services = srvlookup.lookup("mongodb", domain=cluster_address)
 
