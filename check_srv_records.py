@@ -7,11 +7,12 @@ import pymongo
 # b.  pip install dnspython (this should automatically be installed when installing pymongo)
 # c.  pip install srvlookup
 
-# if b,c do not find the SRV records, then either the current python environment has an issue reading SRV records from the DNS (this happens when the python environment becaomes corrupt)
-#    OR that the current host (where the python script is running) doesnt have access to the DNS server,  OR  the SRV records do not exist in the DNS
+# if neither dnspython nor srvlookup are able to find the SRV records, then either the current python environment has an issue reading SRV records from the DNS 
+#    (this happens when the python environment becaomes corrupt), OR  the current host (where the python script is running) doesnt have access to the DNS server
+#       OR  the SRV records do not exist in the DNS
 # 
 
-#set <user>, <pass> and  <cluster_address> to the relevant values
+#  Assign the relevant values to <user>, <pass> and  <cluster_address> 
 
 user= test
 pass= test
